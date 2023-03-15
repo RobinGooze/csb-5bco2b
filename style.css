@@ -1,0 +1,64 @@
+:root {
+  --zero-margin: 0;
+  --overwtited-style: normal;
+  --uncomman-font: serif;
+}
+
+body {
+  margin: var(--zero-margin);
+  text-align: center;
+  background-color: rgb(187, 204, 35);
+}
+
+h1 {
+  margin: var(--zero-margin);
+  font-size: 4em;
+  background-color: gray;
+  color: rgb(10, 109, 10);
+}
+
+h2 {
+  margin: var(--zero-margin);
+  padding: 1em 0;
+  background-color: gray;
+}
+
+p {
+  font-family: sans-serif;
+  font-style: italic;
+  margin: var(--zero-margin);
+  background-color: rgb(165, 204, 107);
+}
+
+form {
+  padding: 0px 20%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 0.9fr 1fr;
+  grid-row-gap: 1rem;
+  grid-template-rows: 5fr 1fr;
+  background-color: green;
+}
+
+textarea {
+  height: 90%;
+  grid-column: 1 / 3;
+}
+
+#capital {
+  /* overwriting again */
+  font-size: 2em;
+  font-family: var(--uncomman-font);
+  font-style: var(--overwtited-style);
+}
+
+#answer {
+  /* overwriting font-family, style and background */
+  word-break: break-all;
+  /* i use break-all for disable inline words. it make template mor flexeble */
+  font-size: 3em;
+  font-style: var(--overwtited-style);
+  font-family: var(--uncomman-font);
+  color: white;
+  background-color: rgb(104, 65, 21);
+}

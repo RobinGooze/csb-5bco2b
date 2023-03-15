@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="CaesarsCipher.js"></script>
+    <link href="style.css" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    <h1>Encrypt you text by Caesar Cipher</h1>
+    <p>
+      <span id="capital">T</span>his encryption based on shifting your letter by
+      number. It's one of the oldest way to encrypting text. <br />
+      <span id="capital">Y</span>ou can use enlish or russian language for make
+      chipher.
+    </p>
+    <form onsubmit="return false">
+      <textarea
+        id="input-text"
+        placeholder="Type your text..."
+        required
+        spellcheck="true"
+      ></textarea>
+      <select id="shift-value">
+        <option value="1">Shift by 1</option>
+        <option value="2">Shift by 2</option>
+        <option value="3">Shift by 3</option>
+        <option value="4">Shift by 4</option>
+        <option value="5">Shift by 5</option>
+        <option value="6">Shift by 6</option>
+        <option value="7">Shift by 7</option>
+        <option value="8">Shift by 8</option>
+        <option value="9">Shift by 9</option>
+        <option value="10">Shift by 10</option>
+        <option value="11">Shift by 11</option>
+        <option value="12">Shift by 12</option>
+        <option value="13">Shift by 13</option>
+      </select>
+      <button onClick="handleClick()">To chipher</button>
+    </form>
+    <h2>You encrypted text is:</h2>
+    <div id="container">
+      <p id="answer"></p>
+    </div>
+  </body>
+</html>
