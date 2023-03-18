@@ -7,15 +7,15 @@ function handleClick() {
 }
 function cipherRot13(str, num) {
   var shiftNum = num;
-  str = str.toUpperCase();
+  let newStr = str.toUpperCase();
   //CHAR TEST
-  if (validator(str)) {
-    return str.replace(/[A-Z]|[А-Я]/g, rot13);
+  if (validator(newStr)) {
+    return newStr.replace(/[A-Z]|[А-Я]|[Ё]/g, rot13);
   } else return "You use unsopported language or symbol";
 
   //char test func
   function validator(validationStr) {
-    const everPosibleChar = /[A-Z]|[А-Я]|\d|[\,\.\+\—\(\)\!\/\[\]\{\}\\\ \|\"\'\-\;\:\@]/g;
+    const everPosibleChar = /[A-Z]|[А-Я]|\d|[Ё\,\.\+\—\(\)\!\/\[\]\{\}\\\ \?\|\"\'\-\;\:\@]/g;
     if (validationStr === "") return true;
     if (validationStr.match(everPosibleChar) === null) {
       return false;
@@ -29,13 +29,16 @@ function cipherRot13(str, num) {
   //char shifting RU, EN
   function rot13(correspondance) {
     const charCode = correspondance.charCodeAt();
-    if (charCode >= 1040 && charCode <= 1071) {
-      // А = 1040, Я = 1071
-      return String.fromCharCode(
-        charCode + shiftNum <= 1071
-          ? charCode + shiftNum
-          : ((charCode + shiftNum) % 1071) + 1039
-      );
+    // is it rus?
+    if ((charCode >= 1040 && charCode <= 1071) || charCode === 1025) {
+      //for russian latters need new script, because some latters have missed in queue
+
+      let alphabetRU = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+      return alphabetRU[
+        alphabetRU.indexOf(correspondance) + shiftNum <= 32
+          ? alphabetRU.indexOf(correspondance) + shiftNum
+          : (alphabetRU.indexOf(correspondance) + shiftNum) % 33
+      ];
     } else {
       //A = 65, Z = 90
       return String.fromCharCode(
